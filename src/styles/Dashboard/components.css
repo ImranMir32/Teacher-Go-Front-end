@@ -1,0 +1,36 @@
+h1 {
+  color: rgb(128, 0, 0);
+  margin: 2rem;
+}
+
+/* .request-container {
+  margin-top: -3rem;
+} */
+.request-details {
+  display: flex;
+  height: 10rem;
+  background-color: white;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  /* padding-left: 4rem; */
+}
+
+.request-all-details {
+  display: flex;
+  flex-direction: row;
+  /* background-color: red; */
+}
+
+.req-choose-button {
+  display: flex;
+  flex-direction: row;
+  margin-left: 14rem;
+}
+.req-div-button {
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.request-all-details p {
+  margin-top: 0.5rem;
+}

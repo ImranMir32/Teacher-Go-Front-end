@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Dashboard/dashboard.css";
+import Request from "../components/AdminDashboardComponents/Request";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -15,6 +16,7 @@ const AdminDashboard = () => {
     <div>
       <div className="cp-container">
         <div className="cp-topic-name">
+          <h2>Admin Dashboard</h2>
           <div className="cp-content">
             <p
               onClick={() => {
@@ -81,12 +83,12 @@ const AdminDashboard = () => {
           </div>
         </div>
         <div className="vertical-line"></div>
-        <div className="scrollable-section">
-          <div className="cp-topic-and-ad">
+        <div className="cp-topic-details-scrollview">
+          <h1>{Page}</h1>
+          <div className="scrollable-section">
             <div className="cp-topic-details">
-              <h1>{Page}</h1>
-              {/* {Page === "Programming Languages" && <ProgrammingLanguages />}
-              {Page === "Data Types and Variables" && <DataTypes />}
+              {Page === "Account Request" && <Request />}
+              {/*{Page === "Data Types and Variables" && <DataTypes />}
               {Page === "Operators and Expressions" && <OperatorsExpressions />}
               {Page === "If Else" && <IfElse />}
               {Page === "Input/Output" && <InputOutput />}
@@ -100,7 +102,6 @@ const AdminDashboard = () => {
               )}
               {Page === "Bit manipulation" && <BitManipulation />} */}
             </div>
-            <div className="ad">ad</div>
           </div>
         </div>
       </div>
