@@ -76,9 +76,9 @@ const AdminDashboard = () => {
 
             <p
               onClick={() => {
-                handleButtonClick("Array");
+                window.location.href = "/";
               }}
-              className={Page === "Array" ? "cp-p-active" : "cp-p"}
+              className={Page === "Log Out" ? "cp-p-active" : "cp-p"}
             >
               Log Out
             </p>
@@ -92,20 +92,6 @@ const AdminDashboard = () => {
               {Page === "Account Request" && <Request />}
               {Page === "Driver List" && <DriverList />}
               {Page === "Teacher List" && <TeacherList />}
-
-              {/*{Page === "Data Types and Variables" && <DataTypes />}
-              {Page === "Operators and Expressions" && <OperatorsExpressions />}
-              {Page === "If Else" && <IfElse />}
-              {Page === "Input/Output" && <InputOutput />}
-              {Page === "Loops" && <LoopInfo />}
-              {Page === "Array" && <ArrayInfo />}
-              {Page === "String" && <StringInfo />}
-              {Page === "Function" && <FunctionInfo />}
-              {Page === "Recursion" && <RecursionInfo />}
-              {Page === "Time complexity and Big O notation" && (
-                <TimeComplexity />
-              )}
-              {Page === "Bit manipulation" && <BitManipulation />} */}
             </div>
           </div>
         </div>
