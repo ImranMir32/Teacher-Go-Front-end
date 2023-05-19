@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Dashboard/dashboard.css";
 import Request from "../components/AdminDashboardComponents/Request";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
+import TeacherList from "../components/AdminDashboardComponents/TeacherList";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -39,9 +40,9 @@ const AdminDashboard = () => {
 
             <p
               onClick={() => {
-                handleButtonClick("Teacher");
+                handleButtonClick("Teacher List");
               }}
-              className={Page === "Teacher" ? "cp-p-active" : "cp-p"}
+              className={Page === "Teacher List" ? "cp-p-active" : "cp-p"}
             >
               Teacher
             </p>
@@ -55,14 +56,14 @@ const AdminDashboard = () => {
               Driver Road
             </p>
 
-            <p
+            {/* <p
               onClick={() => {
                 handleButtonClick("Teacher Road");
               }}
               className={Page === "Teacher Road" ? "cp-p-active" : "cp-p"}
             >
               Teacher Road
-            </p>
+            </p> */}
 
             <p
               onClick={() => {
@@ -90,6 +91,7 @@ const AdminDashboard = () => {
             <div className="cp-topic-details">
               {Page === "Account Request" && <Request />}
               {Page === "Driver List" && <DriverList />}
+              {Page === "Teacher List" && <TeacherList />}
 
               {/*{Page === "Data Types and Variables" && <DataTypes />}
               {Page === "Operators and Expressions" && <OperatorsExpressions />}
