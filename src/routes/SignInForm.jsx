@@ -138,18 +138,14 @@ const SignInForm = () => {
               <p className="P">What kind of account You want to create ?</p>
               <div className="choose-button">
                 <div className="div-button">
-                  <button className="button">
-                    <Link to="/teacher-signup" className="link--">
-                      Teacher
-                    </Link>
-                  </button>
+                  <Link to="/teacher-signup">
+                    <button className="button">Teacher</button>
+                  </Link>
                 </div>
                 <div className="div-button">
-                  <button className="button">
-                    <Link to="/driver-signup" className="link--">
-                      Driver
-                    </Link>
-                  </button>
+                  <Link to="/driver-signup">
+                    <button className="button">Driver</button>
+                  </Link>
                 </div>
               </div>
               <div

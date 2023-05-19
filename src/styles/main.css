@@ -147,58 +147,7 @@ h4 {
 }
 .form-container h1 {
   margin-left: 4.3rem;
-}
-
-/* nav component */
-.nav {
-  display: flex;
-  background-color: #fff;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  border-bottom: 1px solid #e5e5e5;
-  z-index: 1;
-}
-
-.nav ul {
-  width: 50%;
-  height: 60px;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav ul:first-child {
-  margin-left: 30px;
-}
-
-.nav ul li {
-  font-weight: 600;
-}
-
-.nav .brand {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav .brand h3 {
-  font-size: 18px;
-  line-height: 19px;
-  font-weight: 700;
-}
-
-.nav .brand img {
-  width: 32px;
-  margin-right: 10px;
-}
-
-@media only screen and (max-width: 600px) {
-  .nav .brand h3 {
-    display: none;
-  }
+  color: var(--buttonColour);
 }
 
 /* layout component */
@@ -271,21 +220,6 @@ h4 {
   color: #fff;
 }
 
-/* account component */
-.account {
-  width: 50%;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 30px;
-  font-size: 12px;
-}
-
-.account > span:last-child {
-  cursor: pointer;
-}
-
 /* signup component */
 .signup {
   height: 500px;
@@ -294,21 +228,6 @@ h4 {
 /* login component */
 .login {
   height: 330px;
-}
-
-/* illustration component */
-.illustration {
-  padding: 5rem 2rem;
-}
-
-.illustration img {
-  max-width: 80%;
-}
-
-@media only screen and (max-width: 1023px) {
-  .illustration {
-    display: none;
-  }
 }
 
 /* form component */
@@ -327,8 +246,7 @@ h4 {
   margin-top: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
-  .form {
-    grid-template-columns: 1fr;
-  }
+.link {
+  color: var(--buttonColour);
+  font-weight: bold;
 }

@@ -180,7 +180,10 @@ const TeacherSignupForm = () => {
 
               {/* login  */}
               <div class="info">
-                Already have an account? <Link to="/signin">Login</Link>{" "}
+                Already have an account?{" "}
+                <Link to="/" className="link">
+                  Login
+                </Link>{" "}
                 instead.
               </div>
             </form>

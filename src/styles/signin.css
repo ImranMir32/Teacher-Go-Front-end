@@ -252,7 +252,7 @@ h4 {
 }
 
 .H {
-  color: rgba(128, 0, 0);
+  color: var(--buttonColour);
   /* padding-left: 10rem; */
   margin-top: 4rem;
   margin-left: 6.5rem;
@@ -280,8 +280,4 @@ h4 {
 .close :hover {
   height: 2.5rem;
   width: 2.5rem;
-}
-
-.link-- {
-  color: white;
 }
