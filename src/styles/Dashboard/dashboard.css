@@ -1,0 +1,65 @@
+.cp-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* cp topic box */
+.cp-topic-name {
+  padding: 1rem;
+  padding-top: 4rem;
+  width: 15rem;
+  height: 40.55rem;
+  background-color: #181830;
+}
+
+.cp-content p {
+  margin: 0.5rem;
+  font-size: larger;
+}
+
+.cp-p {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+.cp-p:hover {
+  background-color: rgb(138, 79, 79);
+}
+.cp-p-active {
+  background-color: rgb(128, 0, 0);
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+/* .scrollable-section {
+  height: 33rem;
+  overflow-y: scroll;
+} */
+
+/* vertical line */
+.vertical-line {
+  width: 2px;
+  height: 40.55rem;
+  background-color: rgb(128, 0, 0);
+}
+
+.cp-topic-and-ad {
+  display: flex;
+  flex-direction: row;
+}
+
+/* cp details box */
+.cp-topic-details {
+  width: 52rem;
+  height: 40.55rem;
+  background-color: white;
+}
+
+.ad {
+  width: 10rem;
+  height: 100%;
+  /* background-color: red; */
+}
