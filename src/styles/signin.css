@@ -151,6 +151,7 @@ h4 {
   box-shadow: 0 2px 4px rgba(128, 0, 0, 0.3), 0 4px 8px rgba(128, 0, 0, 0.6);
 }
 .sign-form-container h1 {
+  color: rgba(128, 0, 0);
   padding-left: 7.2rem;
 }
 
@@ -236,4 +237,51 @@ h4 {
 .sign-form .button {
   height: 44px;
   margin-top: 2rem;
+}
+
+.choose-button {
+  display: flex;
+  flex-direction: row;
+  width: 20rem;
+  /* background-color: red; */
+  margin-left: 9.5rem;
+  /* margin-top: 2rem; */
+}
+.div-button {
+  margin: 2rem;
+}
+
+.H {
+  color: rgba(128, 0, 0);
+  /* padding-left: 10rem; */
+  margin-top: 4rem;
+  margin-left: 6.5rem;
+  /* background-color: red; */
+}
+
+.P {
+  font-weight: bold;
+  margin-left: 9rem;
+  margin-top: 3rem;
+}
+
+.close {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 19.5rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border: solid 1.7px var(--buttonColour);
+}
+
+.close :hover {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.link-- {
+  color: white;
 }

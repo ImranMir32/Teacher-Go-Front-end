@@ -3,6 +3,7 @@ import "../styles/signin.css";
 import { useFormik } from "formik";
 import { signInSchema } from "../schemas/schemas";
 import { Link } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -130,7 +131,38 @@ const SignInForm = () => {
           </div>
         </main>
       ) : (
-        ""
+        <main class="sign-main">
+          <div class="sign-container">
+            <div class="sign-form-container">
+              <h1 className="H">Teacher-Go</h1>
+              <p className="P">What kind of account You want to create ?</p>
+              <div className="choose-button">
+                <div className="div-button">
+                  <button className="button">
+                    <Link to="/teacher-signup" className="link--">
+                      Teacher
+                    </Link>
+                  </button>
+                </div>
+                <div className="div-button">
+                  <button className="button">
+                    <Link to="/driver-signup" className="link--">
+                      Driver
+                    </Link>
+                  </button>
+                </div>
+              </div>
+              <div
+                className="close"
+                onClick={() => {
+                  handleChooseClick(false);
+                }}
+              >
+                <AiOutlineClose />
+              </div>
+            </div>
+          </div>
+        </main>
       )}
     </>
   );
