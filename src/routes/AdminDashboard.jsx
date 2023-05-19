@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Dashboard/dashboard.css";
 import Request from "../components/AdminDashboardComponents/Request";
+import DriverList from "../components/AdminDashboardComponents/DriverList";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -29,9 +30,9 @@ const AdminDashboard = () => {
 
             <p
               onClick={() => {
-                handleButtonClick("Driver");
+                handleButtonClick("Driver List");
               }}
-              className={Page === "Driver" ? "cp-p-active" : "cp-p"}
+              className={Page === "Driver List" ? "cp-p-active" : "cp-p"}
             >
               Driver
             </p>
@@ -88,6 +89,8 @@ const AdminDashboard = () => {
           <div className="scrollable-section">
             <div className="cp-topic-details">
               {Page === "Account Request" && <Request />}
+              {Page === "Driver List" && <DriverList />}
+
               {/*{Page === "Data Types and Variables" && <DataTypes />}
               {Page === "Operators and Expressions" && <OperatorsExpressions />}
               {Page === "If Else" && <IfElse />}

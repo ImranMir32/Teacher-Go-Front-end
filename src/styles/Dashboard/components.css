@@ -15,6 +15,15 @@ h1 {
   /* padding-left: 4rem; */
 }
 
+.list-details {
+  display: flex;
+  height: 12.7rem;
+  background-color: white;
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  /* padding-left: 4rem; */
+}
+
 .request-all-details {
   display: flex;
   flex-direction: row;
@@ -33,4 +42,11 @@ h1 {
 
 .request-all-details p {
   margin-top: 0.5rem;
+}
+
+img {
+  border-radius: 5rem;
+  margin-right: 4rem;
+  margin-left: 2rem;
+  border: solid 2px rgb(128, 0, 0);
 }
