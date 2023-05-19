@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error.page.jsx";
 
 import TeacherSignupForm from "./routes/TeacherSignupForm";
+import DriverSignupForm from "./routes/DriverSignupForm.jsx";
 // import CpGuide from "./routes/CP-Guide";
 // import SigninForm from "./routes/SigninForm";
 // import SignupForm from "./routes/SignupForm";
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <TeacherSignupForm />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/driver-signup",
+    element: <DriverSignupForm />,
     errorElement: <ErrorPage />,
   },
   // {

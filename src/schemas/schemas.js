@@ -28,6 +28,28 @@ export const teacherSignUpSchema = yup.object().shape({
     .required("Required"),
 });
 
+export const driverSignUpSchema = yup.object().shape({
+  name: yup.string().min(4).required("Name is a required field"),
+  email: yup.string().email("Please enter a valid email").required("Required"),
+  driverId: yup.string().required("Driver Id is a required field"),
+  phone: yup
+    .string()
+    .matches(phoneBd, { message: "Enter a valid phone number" })
+    .required("Required"),
+  password: yup
+    .string()
+    .min(5)
+    .matches(passwordRules, {
+      message:
+        "Password with minimum 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit.",
+    })
+    .required("Required"),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Required"),
+});
+
 export const contactUsSchema = yup.object().shape({
   name: yup.string().min(4).required("Name is a required field"),
   email: yup.string().email("Please enter a valid email").required("Required"),
