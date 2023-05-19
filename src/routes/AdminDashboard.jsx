@@ -3,6 +3,7 @@ import "../styles/Dashboard/dashboard.css";
 import Request from "../components/AdminDashboardComponents/Request";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
 import TeacherList from "../components/AdminDashboardComponents/TeacherList";
+import DriverRoute from "../components/AdminDashboardComponents/DriverRoute";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -49,11 +50,11 @@ const AdminDashboard = () => {
 
             <p
               onClick={() => {
-                handleButtonClick("Driver Road");
+                handleButtonClick("Driver Route");
               }}
-              className={Page === "Driver Road" ? "cp-p-active" : "cp-p"}
+              className={Page === "Driver Route" ? "cp-p-active" : "cp-p"}
             >
-              Driver Road
+              Driver Route
             </p>
 
             {/* <p
@@ -92,6 +93,7 @@ const AdminDashboard = () => {
               {Page === "Account Request" && <Request />}
               {Page === "Driver List" && <DriverList />}
               {Page === "Teacher List" && <TeacherList />}
+              {Page === "Driver Route" && <DriverRoute />}
             </div>
           </div>
         </div>
