@@ -136,16 +136,16 @@ h4 {
   align-items: center;
 }
 
-.column {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+.form-container {
+  width: 50rem;
+  height: 65rem;
+  padding: 5rem;
+  margin-left: 12rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.6);
 }
-
-@media only screen and (max-width: 1023px) {
-  .column {
-    grid-template-columns: 1fr;
-  }
+.form-container h1 {
+  margin-left: 3rem;
 }
 
 /* nav component */

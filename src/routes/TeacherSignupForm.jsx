@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../styles/main.css";
 import { useFormik } from "formik";
-import { signUpSchema } from "../schemas/schemas";
+import { teacherSignUpSchema } from "../schemas/schemas";
 // import imgSignUp from "../assets/signup.svg";
 // import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
@@ -41,7 +41,7 @@ const onSubmit = async (values, actions) => {
   //   }
 };
 
-const SignupForm = () => {
+const TeacherSignupForm = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // scroll to the top of the page
   }, []);
@@ -57,12 +57,12 @@ const SignupForm = () => {
     initialValues: {
       name: "",
       email: "",
-      hackerrankId: "",
+      teacherId: "",
       phone: "",
       password: "",
       confirmPassword: "",
     },
-    validationSchema: signUpSchema,
+    validationSchema: teacherSignUpSchema,
     onSubmit,
   });
 
@@ -71,11 +71,8 @@ const SignupForm = () => {
     <>
       <main class="main">
         <div class="container">
-          <h1>Create an account</h1>
-          <div class="column">
-            {/* <div class="illustration">
-              <img src={imgSignUp} alt="SignUp" />
-            </div> */}
+          <div class="form-container">
+            <h1>Create an account as a Teacher</h1>
             <form class="login form" onSubmit={handleSubmit} autoComplete="off">
               {/* name */}
               <label htmlFor="name">Name</label>
@@ -107,23 +104,21 @@ const SignupForm = () => {
                 <p className="error">{errors.email}</p>
               )}
 
-              {/* hackerrankId */}
-              <label htmlFor="hackerrankId">Hackerrank Id</label>
+              {/* teacherId */}
+              <label htmlFor="teacherId">Teacher Id</label>
               <input
-                value={values.hackerrankId}
+                value={values.teacherId}
                 onChange={handleChange}
-                id="hackerrankId"
+                id="teacherId"
                 type="text"
-                placeholder="Enter your Hackerrank Id"
+                placeholder="Enter your Teacher Id"
                 onBlur={handleBlur}
                 className={
-                  errors.hackerrankId && touched.hackerrankId
-                    ? "input-error"
-                    : ""
+                  errors.teacherId && touched.teacherId ? "input-error" : ""
                 }
               />
-              {errors.hackerrankId && touched.hackerrankId && (
-                <p className="error">{errors.hackerrankId}</p>
+              {errors.teacherId && touched.teacherId && (
+                <p className="error">{errors.teacherId}</p>
               )}
 
               {/* Mobile number */}
@@ -196,4 +191,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default TeacherSignupForm;

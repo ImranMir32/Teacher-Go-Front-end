@@ -2,7 +2,8 @@ import React from "react";
 // import Home from "./routes/SignupForm";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./error.page.jsx";
-import SignupForm from "./routes/SignupForm";
+
+import TeacherSignupForm from "./routes/TeacherSignupForm";
 // import CpGuide from "./routes/CP-Guide";
 // import SigninForm from "./routes/SigninForm";
 // import SignupForm from "./routes/SignupForm";
@@ -15,7 +16,7 @@ import SignupForm from "./routes/SignupForm";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <SignupForm />,
+    element: <TeacherSignupForm />,
     errorElement: <ErrorPage />,
   },
   // {

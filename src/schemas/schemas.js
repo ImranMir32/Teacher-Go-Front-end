@@ -6,10 +6,10 @@ const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 // Regular Expression to match Bangladeshi Phone number
 const phoneBd = /^(?:\+88|88)?(01[3-9]\d{8})$/;
 
-export const signUpSchema = yup.object().shape({
+export const teacherSignUpSchema = yup.object().shape({
   name: yup.string().min(4).required("Name is a required field"),
   email: yup.string().email("Please enter a valid email").required("Required"),
-  hackerrankId: yup.string().required("HackerrankId is a required field"),
+  teacherId: yup.string().required("Teacher Id is a required field"),
   phone: yup
     .string()
     .matches(phoneBd, { message: "Enter a valid phone number" })
