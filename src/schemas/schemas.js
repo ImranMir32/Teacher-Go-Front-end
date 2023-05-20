@@ -64,3 +64,9 @@ export const signInSchema = yup.object().shape({
   email: yup.string().email("Please enter a valid email").required("Required"),
   password: yup.string().required("Required"),
 });
+
+export const addRouteSchema = yup.object().shape({
+  from: yup.string().min(2).required("Route name is a required field"),
+  to: yup.string().min(2).required("Route name is a required field"),
+  // driver_name: yup.string().required("Driver name is a required field"),
+});

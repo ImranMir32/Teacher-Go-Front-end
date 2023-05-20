@@ -281,3 +281,29 @@ h4 {
   height: 2.5rem;
   width: 2.5rem;
 }
+
+.route-form-container {
+  width: 45rem;
+  height: 34rem;
+  /* padding: 5rem; */
+  margin-left: 12rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(128, 0, 0, 0.3), 0 4px 8px rgba(128, 0, 0, 0.6);
+}
+
+.route-close {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rem;
+  /* margin-top: 2rem; */
+  border-radius: 1rem;
+  border: solid 1.7px var(--buttonColour);
+}
+
+.route-close :hover {
+  height: 2.5rem;
+  width: 2.5rem;
+}
