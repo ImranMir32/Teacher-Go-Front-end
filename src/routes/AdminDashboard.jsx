@@ -3,7 +3,7 @@ import "../styles/Dashboard/dashboard.css";
 import Request from "../components/AdminDashboardComponents/Request";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
 import TeacherList from "../components/AdminDashboardComponents/TeacherList";
-import DriverRoute from "../components/AdminDashboardComponents/DriverRoute";
+import Route from "../components/AdminDashboardComponents/Route";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -50,11 +50,11 @@ const AdminDashboard = () => {
 
             <p
               onClick={() => {
-                handleButtonClick("Driver Route");
+                handleButtonClick("Route List");
               }}
-              className={Page === "Driver Route" ? "cp-p-active" : "cp-p"}
+              className={Page === "Route List" ? "cp-p-active" : "cp-p"}
             >
-              Driver Route
+              Route
             </p>
 
             {/* <p
@@ -66,14 +66,14 @@ const AdminDashboard = () => {
               Teacher Road
             </p> */}
 
-            <p
+            {/* <p
               onClick={() => {
                 handleButtonClick("Notify Teacher");
               }}
               className={Page === "Notify Teacher" ? "cp-p-active" : "cp-p"}
             >
               Notify Teacher
-            </p>
+            </p> */}
 
             <p
               onClick={() => {
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
               {Page === "Account Request" && <Request />}
               {Page === "Driver List" && <DriverList />}
               {Page === "Teacher List" && <TeacherList />}
-              {Page === "Driver Route" && <DriverRoute />}
+              {Page === "Route List" && <Route />}
             </div>
           </div>
         </div>

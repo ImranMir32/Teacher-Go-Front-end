@@ -50,3 +50,9 @@ img {
   margin-left: 2rem;
   border: solid 2px rgb(128, 0, 0);
 }
+
+.add {
+  margin-left: 10rem;
+  margin-bottom: 3rem;
+  width: 10rem;
+}
