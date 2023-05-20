@@ -45,6 +45,8 @@ h1 {
 }
 
 img {
+  width: 9rem;
+  height: 9rem;
   border-radius: 5rem;
   margin-right: 4rem;
   margin-left: 2rem;
