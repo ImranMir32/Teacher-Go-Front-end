@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/Dashboard/components.css";
+import sir from "../../assets/imtiaz_sir.jpg";
 import imran from "../../assets/imran.jpg";
 import olin from "../../assets/olin.jpg";
 import rafi from "../../assets/rafi.jpg";
@@ -20,6 +21,19 @@ const TeacherList = () => {
       id: 1,
       details: [
         {
+          name: "Mr. Al-Imtiaz​",
+          teacher_id: 19446510001,
+          phone_no: "01911111111",
+          route: "Campus-Rampura",
+          mail: "alimtiazsir@gmail.com",
+        },
+      ],
+      image: sir,
+    },
+    {
+      id: 2,
+      details: [
+        {
           name: "Md. Imran Mir",
           teacher_id: 1944651035,
           phone_no: "01911111111",
@@ -30,7 +44,7 @@ const TeacherList = () => {
       image: imran,
     },
     {
-      id: 2,
+      id: 3,
       details: [
         {
           name: "Olin Akon Chumky",
@@ -43,7 +57,7 @@ const TeacherList = () => {
       image: olin,
     },
     {
-      id: 3,
+      id: 4,
       details: [
         {
           name: "Tanvir Hasan",
@@ -56,7 +70,7 @@ const TeacherList = () => {
       image: rafi,
     },
     {
-      id: 4,
+      id: 5,
       details: [
         {
           name: "Murtoza Likhon",
@@ -69,7 +83,7 @@ const TeacherList = () => {
       image: likhon,
     },
     {
-      id: 1,
+      id: 6,
       details: [
         {
           name: "Md. Imran Mir",
@@ -82,7 +96,7 @@ const TeacherList = () => {
       image: imran,
     },
     {
-      id: 2,
+      id: 7,
       details: [
         {
           name: "Olin Akon Chumky",
@@ -95,7 +109,7 @@ const TeacherList = () => {
       image: olin,
     },
     {
-      id: 3,
+      id: 8,
       details: [
         {
           name: "Tanvir Hasan",
@@ -108,7 +122,7 @@ const TeacherList = () => {
       image: rafi,
     },
     {
-      id: 4,
+      id: 9,
       details: [
         {
           name: "Murtoza Likhon",

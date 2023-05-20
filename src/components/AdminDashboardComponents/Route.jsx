@@ -145,14 +145,14 @@ const Route = () => {
     },
   ];
 
-  const states = ["UP", "Delhi", "Gujrat"];
-  const cities = {
-    UP: ["f", "g", "l"],
-    Delhi: ["a", "b"],
-    Gujrat: ["tr", "trt", "rtt"],
-  };
+  const states = ["", "Imran", "Rafi", "Likhon", "Tanvir", "Joy"];
+  // const cities = {
+  //   UP: ["f", "g", "l"],
+  //   Delhi: ["a", "b"],
+  //   Gujrat: ["tr", "trt", "rtt"],
+  // };
 
-  const [selectedState, setSelectedState] = useState("");
+  // const [selectedState, etSelectedState] = useState("");
 
   return (
     <div>
@@ -235,21 +235,21 @@ const Route = () => {
             <div>
               <label htmlFor="from">Driver Name</label>
               <select
-                onChange={(e) => {
-                  setSelectedState(e.target.value);
-                }}
+              // onChange={(e) => {
+              //   setSelectedState(e.target.value);
+              // }}
               >
                 {states.map((state) => {
                   return <option>{state}</option>;
                 })}
               </select>
-              {selectedState && (
+              {/* {selectedState && (
                 <select>
                   {cities[selectedState].map((city) => {
                     return <option>{city}</option>;
                   })}
                 </select>
-              )}
+              )} */}
             </div>
             {/* button */}
             <button disabled={isSubmitting} type="submit" class="button">
