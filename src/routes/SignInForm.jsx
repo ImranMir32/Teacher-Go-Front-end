@@ -5,15 +5,21 @@ import { signInSchema } from "../schemas/schemas";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const onSubmit = async (values, actions) => {
   console.log(values);
   console.log(actions);
   console.log("ok");
   console.log(JSON.stringify(values));
-
+  if (values.email === "admin@gmail.com" && values.password === "uits2023") {
+    window.location.href = "/admin-dashboard";
+  } else {
+    toast.error("Wrong email or password !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  }
   //   let result = await fetch("http://localhost:4000/api/users/signin", {
   //     method: "POST",
   //     body: JSON.stringify(values),
@@ -114,7 +120,7 @@ const SignInForm = () => {
                 <button disabled={isSubmitting} type="submit" class="button">
                   Submit
                 </button>
-                {/* <ToastContainer /> */}
+                <ToastContainer />
 
                 {/* login  */}
                 <div
