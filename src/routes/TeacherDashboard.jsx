@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Dashboard/dashboard.css";
 
+import { demoNotification } from "../components/TeacherDashboardComponents/utils";
+
 import TeacherProfile from "../components/TeacherDashboardComponents/TeacherProfile";
+import Notification from "../components/TeacherDashboardComponents/Notification";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
 const TeacherDashboard = () => {
   const [Page, setPage] = useState("Profile");
+  const [Notify, setNotify] = useState(0);
+  useEffect(() => {
+    setNotify(demoNotification.length);
+    window.scrollTo(0, 0); // scroll to the top of the page
+  }, []);
 
   const handleButtonClick = (param) => {
     setPage(param);
@@ -39,18 +47,19 @@ const TeacherDashboard = () => {
 
             <p
               onClick={() => {
-                handleButtonClick("Teacher List");
+                setNotify(0);
+                handleButtonClick("Notification");
               }}
-              className={Page === "Teacher List" ? "cp-p-active" : "cp-p"}
+              className={Page === "Notification" ? "cp-p-active" : "cp-p"}
             >
-              Teacher
+              Notification {"   "} {Notify ? <sup>new</sup> : ""}
             </p>
 
             <p
               onClick={() => {
-                handleButtonClick("Route List");
+                handleButtonClick("Reset Password");
               }}
-              className={Page === "Route List" ? "cp-p-active" : "cp-p"}
+              className={Page === "Reset Password" ? "cp-p-active" : "cp-p"}
             >
               Reset Password
             </p>
@@ -75,8 +84,8 @@ const TeacherDashboard = () => {
             <div className="cp-topic-details">
               {Page === "Profile" && <TeacherProfile />}
               {Page === "Driver List" && <DriverList />}
-              {/* {Page === "Teacher List" && <TeacherList />} 
-              {Page === "Route List" && <Route />} */}
+              {Page === "Notification" && <Notification />}
+              {/* {Page === "Route List" && <Route />} */}
             </div>
           </div>
         </div>

@@ -1,0 +1,14 @@
+.notification-details {
+  display: flex;
+  height: 8rem;
+  background-color: white;
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+  /* padding-left: 4rem; */
+}
+
+.notification-all-details p {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
