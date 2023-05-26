@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Dashboard/dashboard.css";
 
 import TeacherProfile from "../components/TeacherDashboardComponents/TeacherProfile";
-
+import DriverList from "../components/AdminDashboardComponents/DriverList";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
@@ -34,7 +34,7 @@ const TeacherDashboard = () => {
               }}
               className={Page === "Driver List" ? "cp-p-active" : "cp-p"}
             >
-              Driver
+              Driver List
             </p>
 
             <p
@@ -74,8 +74,8 @@ const TeacherDashboard = () => {
           <div className="scrollable-section">
             <div className="cp-topic-details">
               {Page === "Profile" && <TeacherProfile />}
-              {/* {Page === "Driver List" && <DriverList />}
-              {Page === "Teacher List" && <TeacherList />}
+              {Page === "Driver List" && <DriverList />}
+              {/* {Page === "Teacher List" && <TeacherList />} 
               {Page === "Route List" && <Route />} */}
             </div>
           </div>
