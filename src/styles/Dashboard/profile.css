@@ -1,0 +1,52 @@
+.card-container {
+  margin-top: 1rem;
+  margin-left: 20rem;
+  background-color: white;
+  width: 30rem;
+  height: 32rem;
+  box-shadow: 0 2px 4px rgba(128, 0, 0, 0.3), 0 4px 8px rgba(128, 0, 0, 0.6);
+}
+
+.profile-image-container {
+  /* margin-left: 7rem; */
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.profile-image {
+  margin-left: 8.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.image-upload {
+  position: absolute;
+  /* bottom: 0;
+  right: 0; */
+  left: 8.5rem;
+  top: 1rem;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  /* background-color: red; */
+}
+
+.info-container {
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+
+.info-container p {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.profile-edit-button {
+  margin-top: 2.5rem;
+}

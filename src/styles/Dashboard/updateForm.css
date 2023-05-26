@@ -1,0 +1,25 @@
+.update-form-container {
+  width: 50rem;
+  height: 60rem;
+  padding: 2rem;
+  margin-left: 9rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(128, 0, 0, 0.3), 0 4px 8px rgba(128, 0, 0, 0.6);
+}
+
+.update-close {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 11rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  border: solid 1.7px var(--buttonColour);
+}
+
+.update-close :hover {
+  height: 2.5rem;
+  width: 2.5rem;
+}

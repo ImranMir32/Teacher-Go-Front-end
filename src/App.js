@@ -6,6 +6,7 @@ import SignInForm from "./routes/SignInForm.jsx";
 import TeacherSignupForm from "./routes/TeacherSignupForm";
 import DriverSignupForm from "./routes/DriverSignupForm.jsx";
 import AdminDashboard from "./routes/AdminDashboard.jsx";
+import TeacherDashboard from "./routes/TeacherDashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/admin-dashboard",
     element: <AdminDashboard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/teacher-dashboard",
+    element: <TeacherDashboard />,
     errorElement: <ErrorPage />,
   },
 ]);
