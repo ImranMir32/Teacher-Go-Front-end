@@ -6,6 +6,7 @@ import { demoNotification } from "../components/TeacherDashboardComponents/utils
 import TeacherProfile from "../components/TeacherDashboardComponents/TeacherProfile";
 import Notification from "../components/TeacherDashboardComponents/Notification";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
+import ResetPassword from "../components/TeacherDashboardComponents/ResetPassword";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
@@ -85,7 +86,7 @@ const TeacherDashboard = () => {
               {Page === "Profile" && <TeacherProfile />}
               {Page === "Driver List" && <DriverList />}
               {Page === "Notification" && <Notification />}
-              {/* {Page === "Route List" && <Route />} */}
+              {Page === "Reset Password" && <ResetPassword />}
             </div>
           </div>
         </div>
