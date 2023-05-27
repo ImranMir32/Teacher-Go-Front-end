@@ -4,10 +4,10 @@ import "../styles/Dashboard/dashboard.css";
 import { demoNotification } from "../components/TeacherDashboardComponents/utils";
 
 import Notification from "../components/TeacherDashboardComponents/Notification";
-import DriverList from "../components/AdminDashboardComponents/DriverList";
 import ResetPassword from "../components/DriverDashboardComponents/ResetPassword";
 import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
 import DriverProfile from "../components/DriverDashboardComponents/DriverProfile";
+import MyTeacherList from "../components/DriverDashboardComponents/MyTeacherList";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
@@ -95,7 +95,7 @@ const DriverDashboard = () => {
             <div className="cp-topic-details">
               {Page === "Profile" && <DriverProfile />}
               {Page === "My Driver" && <MyDriver />}
-              {Page === "Driver List" && <DriverList />}
+              {Page === "My Teacher List" && <MyTeacherList />}
               {Page === "Notification" && <Notification />}
               {Page === "Reset Password" && <ResetPassword />}
             </div>
