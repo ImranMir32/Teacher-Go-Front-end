@@ -5,7 +5,7 @@ import { demoNotification } from "../components/TeacherDashboardComponents/utils
 
 import Notification from "../components/TeacherDashboardComponents/Notification";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
-import ResetPassword from "../components/TeacherDashboardComponents/ResetPassword";
+import ResetPassword from "../components/DriverDashboardComponents/ResetPassword";
 import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
 import DriverProfile from "../components/DriverDashboardComponents/DriverProfile";
 // import { ToastContainer, toast } from "react-toastify";
