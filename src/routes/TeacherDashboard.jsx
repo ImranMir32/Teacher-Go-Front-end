@@ -7,6 +7,7 @@ import TeacherProfile from "../components/TeacherDashboardComponents/TeacherProf
 import Notification from "../components/TeacherDashboardComponents/Notification";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
 import ResetPassword from "../components/TeacherDashboardComponents/ResetPassword";
+import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 
@@ -35,6 +36,15 @@ const TeacherDashboard = () => {
               className={Page === "Profile" ? "cp-p-active" : "cp-p"}
             >
               Profile
+            </p>
+
+            <p
+              onClick={() => {
+                handleButtonClick("My Driver");
+              }}
+              className={Page === "My Driver" ? "cp-p-active" : "cp-p"}
+            >
+              My Driver
             </p>
 
             <p
@@ -84,6 +94,7 @@ const TeacherDashboard = () => {
           <div className="scrollable-section">
             <div className="cp-topic-details">
               {Page === "Profile" && <TeacherProfile />}
+              {Page === "My Driver" && <MyDriver />}
               {Page === "Driver List" && <DriverList />}
               {Page === "Notification" && <Notification />}
               {Page === "Reset Password" && <ResetPassword />}
