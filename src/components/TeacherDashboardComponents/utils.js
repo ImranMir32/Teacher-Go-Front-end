@@ -5,12 +5,7 @@ export const demoNotification = [
     message: "Sir, your account has been verified ",
     date: "27/05/2023",
   },
-  {
-    id: 2,
-    sender: "Driver",
-    message: "Sir, sorry to say that car is out of service for tomorrow.",
-    date: "29/05/2023",
-  },
+
   {
     id: 3,
     sender: "Admin",
