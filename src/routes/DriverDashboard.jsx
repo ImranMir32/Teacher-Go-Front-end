@@ -3,9 +3,9 @@ import "../styles/Dashboard/dashboard.css";
 
 import { demoNotification } from "../components/TeacherDashboardComponents/utils";
 
-import Notification from "../components/TeacherDashboardComponents/Notification";
+import Notification from "../components/DriverDashboardComponents/Notification";
 import ResetPassword from "../components/DriverDashboardComponents/ResetPassword";
-import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
+
 import DriverProfile from "../components/DriverDashboardComponents/DriverProfile";
 import MyTeacherList from "../components/DriverDashboardComponents/MyTeacherList";
 // import { ToastContainer, toast } from "react-toastify";
@@ -94,7 +94,6 @@ const DriverDashboard = () => {
           <div className="scrollable-section">
             <div className="cp-topic-details">
               {Page === "Profile" && <DriverProfile />}
-              {Page === "My Driver" && <MyDriver />}
               {Page === "My Teacher List" && <MyTeacherList />}
               {Page === "Notification" && <Notification />}
               {Page === "Reset Password" && <ResetPassword />}
