@@ -105,7 +105,7 @@ const DriverSignupForm = () => {
               )}
 
               {/* driverId */}
-              <label htmlFor="driverId">Driver Id</label>
+              {/* <label htmlFor="driverId">Driver Id</label>
               <input
                 value={values.driverId}
                 onChange={handleChange}
@@ -119,7 +119,7 @@ const DriverSignupForm = () => {
               />
               {errors.driverId && touched.driverId && (
                 <p className="error">{errors.driverId}</p>
-              )}
+              )} */}
 
               {/* Mobile number */}
               <label htmlFor="phone">Mobile number</label>
@@ -184,7 +184,6 @@ const DriverSignupForm = () => {
                 <Link to="/" className="link">
                   Login
                 </Link>{" "}
-                instead.
               </div>
             </form>
           </div>

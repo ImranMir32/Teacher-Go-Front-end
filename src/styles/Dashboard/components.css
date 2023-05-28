@@ -9,7 +9,7 @@ h1 {
 .request-details {
   display: flex;
   height: 10rem;
-  background-color: white;
+  background-color: rgb(201, 186, 236);
   margin-bottom: 1.5rem;
   padding: 2rem;
   /* padding-left: 4rem; */
@@ -57,4 +57,13 @@ img {
   margin-left: 10rem;
   margin-bottom: 3rem;
   width: 10rem;
+}
+
+.request-details-teacher {
+  display: flex;
+  height: 10rem;
+  background-color: rgb(187, 214, 240);
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  /* padding-left: 4rem; */
 }

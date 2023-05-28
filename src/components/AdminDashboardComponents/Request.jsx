@@ -23,17 +23,7 @@ const Request = () => {
         },
       ],
     },
-    {
-      id: 2,
-      account_type: "Teacher",
-      details: [
-        {
-          name: "Olin Akon Chumky",
-          teacher_id: 1944651032,
-          mail: "1944651032@uits.edu.bd",
-        },
-      ],
-    },
+
     {
       id: 1,
       account_type: "Driver",
@@ -42,6 +32,17 @@ const Request = () => {
           name: "Tanvir Hasan",
           driver_id: 1944651069,
           mail: "1944651069@uits.edu.bd",
+        },
+      ],
+    },
+    {
+      id: 2,
+      account_type: "Teacher",
+      details: [
+        {
+          name: "Olin Akon Chumky",
+          teacher_id: 1944651032,
+          mail: "1944651032@uits.edu.bd",
         },
       ],
     },
@@ -149,21 +150,31 @@ const Request = () => {
     <div>
       <div className="request-container" id="mySection">
         {demoRequest.map((demoRequest) => (
-          <div className="request-details">
+          <div
+            className={
+              demoRequest.account_type === "Teacher"
+                ? "request-details-teacher"
+                : "request-details"
+            }
+
+            // className="request-details-teacher"
+          >
             <div className="request-all-details">
               <div key={demoRequest.id}>
                 <h3>{demoRequest.account_type}</h3>
-                {demoRequest.details.map((details) => (
-                  <div key={details.teacher_id}>
-                    <p>Name : {details.name}</p>
-                    {demoRequest.account_type === "Teacher" ? (
-                      <p>Teacher Id : {details.teacher_id}</p>
-                    ) : (
-                      <p>Driver Id : {details.driver_id}</p>
-                    )}
-                    <p>Mail : {details.mail}</p>
-                  </div>
-                ))}
+                <div>
+                  {demoRequest.details.map((details) => (
+                    <div key={details.teacher_id}>
+                      <p>Name : {details.name}</p>
+                      {demoRequest.account_type === "Teacher" ? (
+                        <p>Teacher Id : {details.teacher_id}</p>
+                      ) : (
+                        <p>Driver Id : {details.driver_id}</p>
+                      )}
+                      <p>Mail : {details.mail}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="request-all-details">
