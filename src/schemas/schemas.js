@@ -14,6 +14,7 @@ export const teacherSignUpSchema = yup.object().shape({
     .string()
     .matches(phoneBd, { message: "Enter a valid phone number" })
     .required("Required"),
+  route: yup.string().required("Please select an option"),
   password: yup
     .string()
     .min(5)

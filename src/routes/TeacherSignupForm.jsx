@@ -61,11 +61,19 @@ const TeacherSignupForm = () => {
       phone: "",
       password: "",
       confirmPassword: "",
+      route: "",
     },
     validationSchema: teacherSignUpSchema,
     onSubmit,
   });
-
+  const routesArray = [
+    "",
+    "UITS-Rampura",
+    "UITS-Khilgoan",
+    "UITS-Uttara",
+    "UITS-Gazipur",
+    "UITS-Bashaboo",
+  ];
   console.log(errors);
   return (
     <>
@@ -135,6 +143,16 @@ const TeacherSignupForm = () => {
               {errors.phone && touched.phone && (
                 <p className="error">{errors.phone}</p>
               )}
+
+              {/* routes */}
+              <div>
+                <label htmlFor="from">Route </label>
+                <select>
+                  {routesArray.map((route) => {
+                    return <option>{route}</option>;
+                  })}
+                </select>
+              </div>
 
               {/* passwword */}
               <label htmlFor="password">Password</label>
