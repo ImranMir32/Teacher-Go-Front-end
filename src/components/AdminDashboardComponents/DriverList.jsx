@@ -171,7 +171,11 @@ const DriverList = () => {
                 {/* <h3>{demoRequest.account_type}</h3> */}
                 {demoDriverList.details.map((details) => (
                   <div key={details.driver_id}>
-                    <p>Name : {details.name}</p>
+                    <div className="driver-status">
+                      <p>Name : {details.name}</p>​
+                      <p className="status">ACTIVE</p>
+                    </div>
+
                     <p>Phone Number : {details.phone_no}</p>
                     <p>Driver Id : {details.driver_id}</p>
                     <p>Route : {details.route}</p>

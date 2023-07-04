@@ -1,14 +1,36 @@
-.notification-details {
+.notify {
   display: flex;
-  height: 8rem;
+  align-items: center;
+  width: 25rem;
+  height: 7rem;
+  margin-left: 16rem;
+  margin-top: 14rem;
   background-color: white;
-  margin-bottom: 2rem;
-  padding: 2rem;
-
-  /* padding-left: 4rem; */
+  box-shadow: 0 2px 4px rgba(128, 0, 0, 0.3), 0 4px 8px rgba(128, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
-.notification-all-details p {
-  font-weight: bold;
-  margin-bottom: 0.2rem;
+.in {
+  margin-left: 4.3rem;
+  font-size: larger;
+  background-color: green;
+  color: white;
+  width: 7rem;
+  height: 3rem;
+}
+.in:hover {
+  background-color: rgb(71, 160, 71);
+}
+
+.out {
+  font-size: larger;
+  margin-left: 1rem;
+  background-color: red;
+  color: white;
+  width: 7rem;
+  height: 3rem;
+}
+
+.out:hover {
+  background-color: rgb(224, 83, 83);
 }

@@ -23,3 +23,17 @@
   height: 2.5rem;
   width: 2.5rem;
 }
+
+.driver-status {
+  display: flex;
+}
+.status {
+  margin-left: 1rem;
+  background-color: green;
+  color: white;
+  font-size: small;
+  height: 1.2rem;
+  width: 4rem;
+  padding-left: 0.4rem;
+  border-radius: 10px;
+}

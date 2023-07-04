@@ -93,7 +93,11 @@ const TeacherProfile = () => {
           </div>
 
           <div className="info-container">
-            <p>Name : Mr. Al-Imtiaz​</p>
+            <div className="driver-status">
+              <p>Name : Mr. Al-Imtiaz​</p>
+              <p className="status">ACTIVE</p>
+            </div>
+
             <p>Phone Number : 01911111111</p>
             <p>Teacher Id : 19446510001</p>
             <p>Route : Campus-Rampura</p>

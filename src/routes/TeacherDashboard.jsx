@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Dashboard/dashboard.css";
 
-import { demoNotification } from "../components/TeacherDashboardComponents/utils";
+// import { demoNotification } from "../components/TeacherDashboardComponents/utils";
 
 import TeacherProfile from "../components/TeacherDashboardComponents/TeacherProfile";
-import Notification from "../components/TeacherDashboardComponents/Notification";
+import TeacherStatus from "../components/TeacherDashboardComponents/TeacherStatus";
 import DriverList from "../components/AdminDashboardComponents/DriverList";
 import ResetPassword from "../components/TeacherDashboardComponents/ResetPassword";
 import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
@@ -13,11 +13,11 @@ import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
 
 const TeacherDashboard = () => {
   const [Page, setPage] = useState("Profile");
-  const [Notify, setNotify] = useState(0);
-  useEffect(() => {
-    setNotify(demoNotification.length);
-    window.scrollTo(0, 0); // scroll to the top of the page
-  }, []);
+  // const [Notify, setNotify] = useState(0);
+  // useEffect(() => {
+  //   setNotify(demoNotification.length);
+  //   window.scrollTo(0, 0); // scroll to the top of the page
+  // }, []);
 
   const handleButtonClick = (param) => {
     setPage(param);
@@ -58,12 +58,11 @@ const TeacherDashboard = () => {
 
             <p
               onClick={() => {
-                setNotify(0);
-                handleButtonClick("Notification");
+                handleButtonClick("Teacher Status");
               }}
-              className={Page === "Notification" ? "cp-p-active" : "cp-p"}
+              className={Page === "Teacher Status" ? "cp-p-active" : "cp-p"}
             >
-              Notification {"   "} {Notify ? <sup>new</sup> : ""}
+              Status
             </p>
 
             <p
@@ -96,7 +95,7 @@ const TeacherDashboard = () => {
               {Page === "Profile" && <TeacherProfile />}
               {Page === "My Driver" && <MyDriver />}
               {Page === "Driver List" && <DriverList />}
-              {Page === "Notification" && <Notification />}
+              {Page === "Teacher Status" && <TeacherStatus />}
               {Page === "Reset Password" && <ResetPassword />}
             </div>
           </div>
