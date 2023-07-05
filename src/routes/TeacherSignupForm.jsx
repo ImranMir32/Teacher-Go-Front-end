@@ -7,8 +7,8 @@ import { teacherSignUpSchema } from "../schemas/schemas";
 import { Link } from "react-router-dom";
 // import Footer from "../components/Footer";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -16,29 +16,43 @@ const onSubmit = async (values, actions) => {
   console.log("ok");
   console.log(JSON.stringify(values));
 
-  //   let result = await fetch("http://localhost:4000/api/users/signin", {
-  //     method: "POST",
-  //     body: JSON.stringify(values),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   result = await result.json();
-  //   // console.log("result--> ", result.newUser);
-  //   actions.resetForm();
+  let obj = {
+    name: values.name,
+    email: values.email,
+    id: values.teacherId,
+    phone: values.phone,
+    routeId: values.route,
+    password: values.password,
+    role: values.role,
+  };
 
-  //   if (result.newUser) {
-  //     toast.success("Account has been created !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //     setTimeout(() => {
-  //       window.location.href = "/signin";
-  //     }, 2000);
-  //   } else {
-  //     toast.warning("Email is already used try another email !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //   }
+  let jsonStr = JSON.stringify(obj);
+  console.log(jsonStr);
+
+  console.log("->", obj);
+  let result = await fetch("http://localhost:8000/api/v1/users/signup", {
+    method: "POST",
+    body: JSON.stringify(obj),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  result = await result.json();
+  // console.log("result--> ", result.newUser);
+  actions.resetForm();
+  console.log(result);
+  if (result.status === "success") {
+    toast.success("Request has been send successfully !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
+  } else {
+    toast.warning("Email is already used try another email !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  }
 };
 
 const TeacherSignupForm = () => {
@@ -62,6 +76,7 @@ const TeacherSignupForm = () => {
       password: "",
       confirmPassword: "",
       route: "",
+      role: "teacher",
     },
     validationSchema: teacherSignUpSchema,
     onSubmit,
@@ -145,12 +160,26 @@ const TeacherSignupForm = () => {
               )}
 
               {/* routes */}
-              <div>
+              {/* <div>
                 <label htmlFor="from">Route </label>
                 <select>
                   {routesArray.map((route) => {
                     return <option>{route}</option>;
                   })}
+                </select>
+              </div> */}
+              <div>
+                <label htmlFor="from">Route </label>
+                <select
+                  name="route" // Add the name attribute
+                  value={values.route}
+                  onChange={handleChange}
+                >
+                  {routesArray.map((route, index) => (
+                    <option key={index} value={route}>
+                      {route}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -194,7 +223,7 @@ const TeacherSignupForm = () => {
               <button disabled={isSubmitting} type="submit" class="button">
                 Submit
               </button>
-              {/* <ToastContainer /> */}
+              <ToastContainer />
 
               {/* login  */}
               <div class="info">

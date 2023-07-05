@@ -9,6 +9,9 @@ import AdminDashboard from "./routes/AdminDashboard.jsx";
 import TeacherDashboard from "./routes/TeacherDashboard.jsx";
 import DriverDashboard from "./routes/DriverDashboard.jsx";
 
+import { GlobalStateProvider } from "./Context/Global_Context";
+import { GlobalMethodsProvider } from "./Context/GlobalMethodsContext";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,7 +46,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <GlobalStateProvider>
+      <GlobalMethodsProvider>
+        <RouterProvider router={router} />
+      </GlobalMethodsProvider>
+    </GlobalStateProvider>
+  );
 }
 
 export default App;
