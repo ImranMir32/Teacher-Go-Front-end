@@ -1,23 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/Dashboard/dashboard.css";
 
-import { demoNotification } from "../components/TeacherDashboardComponents/utils";
-
-import Notification from "../components/DriverDashboardComponents/Notification";
 import ResetPassword from "../components/DriverDashboardComponents/ResetPassword";
 
 import DriverProfile from "../components/DriverDashboardComponents/DriverProfile";
 import MyTeacherList from "../components/DriverDashboardComponents/MyTeacherList";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import TeacherStatus from "../components/TeacherDashboardComponents/TeacherStatus";
 
 const DriverDashboard = () => {
   const [Page, setPage] = useState("Profile");
-  const [Notify, setNotify] = useState(0);
-  useEffect(() => {
-    setNotify(demoNotification.length);
-    window.scrollTo(0, 0); // scroll to the top of the page
-  }, []);
 
   const handleButtonClick = (param) => {
     setPage(param);
@@ -47,23 +38,13 @@ const DriverDashboard = () => {
               My Teacher List
             </p>
 
-            {/* <p
-              onClick={() => {
-                handleButtonClick("Driver List");
-              }}
-              className={Page === "Driver List" ? "cp-p-active" : "cp-p"}
-            >
-              Driver List
-            </p> */}
-
             <p
               onClick={() => {
-                setNotify(0);
-                handleButtonClick("Notification");
+                handleButtonClick("Teacher Status");
               }}
-              className={Page === "Notification" ? "cp-p-active" : "cp-p"}
+              className={Page === "Teacher Status" ? "cp-p-active" : "cp-p"}
             >
-              Notification {"   "} {Notify ? <sup>new</sup> : ""}
+              Status
             </p>
 
             <p
@@ -95,7 +76,7 @@ const DriverDashboard = () => {
             <div className="cp-topic-details">
               {Page === "Profile" && <DriverProfile />}
               {Page === "My Teacher List" && <MyTeacherList />}
-              {Page === "Notification" && <Notification />}
+              {Page === "Teacher Status" && <TeacherStatus />}
               {Page === "Reset Password" && <ResetPassword />}
             </div>
           </div>

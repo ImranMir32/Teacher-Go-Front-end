@@ -93,7 +93,10 @@ const DriverProfile = () => {
           </div>
 
           <div className="info-container">
-            <p>Name : Md. Imran Mir​</p>
+            <div className="driver-status">
+              <p>Name : Md. Imran Mir​</p>
+              <p className="status">ACTIVE</p>
+            </div>
             <p>Phone Number : 01911111111</p>
             <p>Driver Id : 19446510001</p>
             <p>Route : Campus-Rampura</p>

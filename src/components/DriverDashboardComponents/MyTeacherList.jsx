@@ -116,7 +116,11 @@ const MyTeacherList = () => {
                 {/* <h3>{demoRequest.account_type}</h3> */}
                 {demoTeacherList.details.map((details) => (
                   <div key={details.teacher_id}>
-                    <p>Name : {details.name}</p>
+                    <div className="driver-status">
+                      <p>Name : {details.name}</p>
+                      <p className="status">ACTIVE</p>
+                    </div>
+
                     <p>Phone Number : {details.phone_no}</p>
                     <p>Teacher Id : {details.teacher_id}</p>
                     {/* <p>Route : {details.route}</p> */}

@@ -1,7 +1,6 @@
 import React from "react";
 // import "../../styles/Dashboard/components.css";
 import "../../styles/Dashboard/notification.css";
-import { demoNotification } from "./utils";
 
 const TeacherStatus = () => {
   return (
