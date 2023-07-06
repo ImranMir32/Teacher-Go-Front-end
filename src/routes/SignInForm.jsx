@@ -5,50 +5,49 @@ import { signInSchema } from "../schemas/schemas";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
+import { useNavigate } from "react-router-dom";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  console.log("ok");
-  console.log(JSON.stringify(values));
-  if (values.email === "admin@gmail.com" && values.password === "uits2023") {
-    window.location.href = "/admin-dashboard";
-  } else {
-    toast.error("Wrong email or password !", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
-  }
-  //   let result = await fetch("http://localhost:4000/api/users/signin", {
-  //     method: "POST",
-  //     body: JSON.stringify(values),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   result = await result.json();
-  //   // console.log("result--> ", result.newUser);
-  //   actions.resetForm();
-
-  //   if (result.newUser) {
-  //     toast.success("Account has been created !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //     setTimeout(() => {
-  //       window.location.href = "/signin";
-  //     }, 2000);
-  //   } else {
-  //     toast.warning("Email is already used try another email !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //   }
-};
 
 const SignInForm = () => {
   const [choose, setChoose] = useState(false);
   const handleChooseClick = (param) => {
     setChoose(param);
+  };
+  const navigate = useNavigate();
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("ok");
+    console.log(JSON.stringify(values));
+    // if (values.email === "admin@gmail.com" && values.password === "uits2023") {
+    //   window.location.href = "/admin-dashboard";
+    // } else {
+    //   toast.error("Wrong email or password !", {
+    //     position: toast.POSITION.TOP_RIGHT,
+    //   });
+    // }
+    let result = await fetch("http://localhost:8000/api/v1/users/login", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    // console.log("result--> ", result.newUser);
+    actions.resetForm();
+
+    if (result.status === "success") {
+      if (result.user.role === "teacher") navigate("/teacher-dashboard");
+      else if (result.user.role === "driver") navigate("/driver-dashboard");
+    } else {
+      toast.error("Wrong email or password !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
 
   useEffect(() => {
