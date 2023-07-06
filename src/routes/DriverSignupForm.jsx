@@ -5,46 +5,62 @@ import { driverSignUpSchema } from "../schemas/schemas";
 // import imgSignUp from "../assets/signup.svg";
 // import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import Footer from "../components/Footer";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  console.log("ok");
-  console.log(JSON.stringify(values));
-
-  //   let result = await fetch("http://localhost:4000/api/users/signin", {
-  //     method: "POST",
-  //     body: JSON.stringify(values),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   result = await result.json();
-  //   // console.log("result--> ", result.newUser);
-  //   actions.resetForm();
-
-  //   if (result.newUser) {
-  //     toast.success("Account has been created !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //     setTimeout(() => {
-  //       window.location.href = "/signin";
-  //     }, 2000);
-  //   } else {
-  //     toast.warning("Email is already used try another email !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //   }
-};
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DriverSignupForm = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // scroll to the top of the page
   }, []);
+  const navigate = useNavigate();
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("ok");
+    console.log(JSON.stringify(values));
+
+    let obj = {
+      name: values.name,
+      email: values.email,
+      id: values.teacherId,
+      phone: values.phone,
+      routeId: values.route,
+      password: values.password,
+      role: values.role,
+    };
+
+    let jsonStr = JSON.stringify(obj);
+    console.log(jsonStr);
+
+    console.log("->", obj);
+    let result = await fetch("http://localhost:8000/api/v1/users/signup", {
+      method: "POST",
+      body: JSON.stringify(obj),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    // console.log("result--> ", result.newUser);
+    actions.resetForm();
+    console.log(result);
+    if (result.status === "success") {
+      toast.success("Request has been send successfully !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } else {
+      toast.warning("Email is already used try another email !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
   const {
     values,
     errors,
@@ -57,10 +73,12 @@ const DriverSignupForm = () => {
     initialValues: {
       name: "",
       email: "",
-      driverId: "",
+      driverId: "1",
       phone: "",
       password: "",
       confirmPassword: "",
+      route: "",
+      role: "driver",
     },
     validationSchema: driverSignUpSchema,
     onSubmit,
@@ -176,7 +194,7 @@ const DriverSignupForm = () => {
               <button disabled={isSubmitting} type="submit" class="button">
                 Submit
               </button>
-              {/* <ToastContainer /> */}
+              <ToastContainer />
 
               {/* login  */}
               <div class="info">

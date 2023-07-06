@@ -32,7 +32,7 @@ export const teacherSignUpSchema = yup.object().shape({
 export const driverSignUpSchema = yup.object().shape({
   name: yup.string().min(4).required("Name is a required field"),
   email: yup.string().email("Please enter a valid email").required("Required"),
-  driverId: yup.string().required("Driver Id is a required field"),
+  // driverId: yup.string().required("Driver Id is a required field"),
   phone: yup
     .string()
     .matches(phoneBd, { message: "Enter a valid phone number" })
