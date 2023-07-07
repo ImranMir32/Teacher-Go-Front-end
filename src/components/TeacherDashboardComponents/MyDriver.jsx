@@ -20,7 +20,7 @@ const MyDriver = () => {
         <div className="info-container">
           <div className="driver-status">
             <p>Name : Tanvir Hasan ​</p>
-            <p className="status">ACTIVE</p>
+            <p className="status-a">ACTIVE</p>
           </div>
           <p>Phone Number : 01911111111</p>
           <p>Driver Id : 19446510001</p>

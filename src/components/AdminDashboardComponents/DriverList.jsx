@@ -1,6 +1,8 @@
 import React from "react";
 import "../../styles/Dashboard/components.css";
 import imran from "../../assets/imran.jpg";
+import likhon from "../../assets/likhon.jpg";
+import rafi from "../../assets/rafi.jpg";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -22,8 +24,10 @@ const DriverList = () => {
           phone_no: "01911111111",
           route: "Campus-Rampura",
           mail: "imran@gmail.com",
+          status: "ACTIVE",
         },
       ],
+      img: imran,
     },
     {
       id: 2,
@@ -34,20 +38,24 @@ const DriverList = () => {
           phone_no: "01911111111",
           route: "Campus-Mohakhali",
           mail: "rafi@gmail.com",
+          status: "ABSENCE",
         },
       ],
+      img: rafi,
     },
     {
       id: 3,
       details: [
         {
-          name: "Tanvir Hasan",
+          name: "Murtoza Likhon",
           driver_id: 1944651069,
           phone_no: "01911111111",
           route: "Campus-Mohakhali",
           mail: "1944651069@uits.edu.bd",
+          status: "ACTIVE",
         },
       ],
+      img: likhon,
     },
     {
       id: 4,
@@ -164,7 +172,7 @@ const DriverList = () => {
         {demoDriverList.map((demoDriverList) => (
           <div className="list-details">
             <div className="request-all-details">
-              <img src={imran} alt="imran" />
+              <img src={demoDriverList.img} alt="imran" />
             </div>
             <div className="request-all-details">
               <div key={demoDriverList.id}>
@@ -172,8 +180,14 @@ const DriverList = () => {
                 {demoDriverList.details.map((details) => (
                   <div key={details.driver_id}>
                     <div className="driver-status">
-                      <p>Name : {details.name}</p>​
-                      <p className="status">ACTIVE</p>
+                      <p>Name : {details.name}</p>
+                      <p
+                        className={
+                          details.status === "ACTIVE" ? "status-a" : "status-p"
+                        }
+                      >
+                        {details.status}
+                      </p>
                     </div>
 
                     <p>Phone Number : {details.phone_no}</p>

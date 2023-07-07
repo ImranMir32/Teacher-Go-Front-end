@@ -235,7 +235,6 @@ const TeacherSignupForm = () => {
                 <Link to="/" className="link">
                   Login
                 </Link>{" "}
-                instead.
               </div>
             </form>
           </div>

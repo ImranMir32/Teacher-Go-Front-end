@@ -118,7 +118,11 @@ const MyTeacherList = () => {
                   <div key={details.teacher_id}>
                     <div className="driver-status">
                       <p>Name : {details.name}</p>
-                      <p className="status">ACTIVE</p>
+                      {details.name === "Olin Akon Chumky" ? (
+                        <p className="status-p">ABSENCE</p>
+                      ) : (
+                        <p className="status-a">ACTIVE</p>
+                      )}
                     </div>
 
                     <p>Phone Number : {details.phone_no}</p>

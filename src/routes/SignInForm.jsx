@@ -77,7 +77,7 @@ const SignInForm = () => {
         <main class="sign-main">
           <div class="sign-container">
             <div class="sign-form-container">
-              <h1>Login into Teacher-Go</h1>
+              <h1>Login</h1>
               <form
                 class="sign-login sign-form"
                 onSubmit={handleSubmit}
@@ -128,8 +128,7 @@ const SignInForm = () => {
                     handleChooseClick(true);
                   }}
                 >
-                  Don't have an account? <Link className="link">Signup</Link>{" "}
-                  instead.
+                  Don't have an account? <Link className="link">Signup</Link>
                 </div>
               </form>
             </div>
@@ -139,7 +138,7 @@ const SignInForm = () => {
         <main class="sign-main">
           <div class="sign-container">
             <div class="sign-form-container">
-              <h1 className="H">Teacher-Go</h1>
+              <h1 className="H">Teacher Transport</h1>
               <p className="P">What kind of account You want to create ?</p>
               <div className="choose-button">
                 <div className="div-button">

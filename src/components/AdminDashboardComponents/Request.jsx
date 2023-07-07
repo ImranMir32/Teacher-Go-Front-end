@@ -30,7 +30,7 @@ const Request = () => {
       details: [
         {
           name: "Tanvir Hasan",
-          driver_id: 1944651069,
+          // driver_id: 1944651069,
           mail: "1944651069@uits.edu.bd",
         },
       ],
@@ -169,7 +169,8 @@ const Request = () => {
                       {demoRequest.account_type === "Teacher" ? (
                         <p>Teacher Id : {details.teacher_id}</p>
                       ) : (
-                        <p>Driver Id : {details.driver_id}</p>
+                        ""
+                        // <p>Driver Id : {details.driver_id}</p>
                       )}
                       <p>Mail : {details.mail}</p>
                     </div>

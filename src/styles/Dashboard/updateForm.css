@@ -27,13 +27,24 @@
 .driver-status {
   display: flex;
 }
-.status {
+.status-a {
   margin-left: 1rem;
   background-color: green;
   color: white;
   font-size: small;
   height: 1.2rem;
   width: 4rem;
+  padding-left: 0.4rem;
+  border-radius: 10px;
+}
+
+.status-p {
+  margin-left: 1rem;
+  background-color: red;
+  color: white;
+  font-size: small;
+  height: 1.2rem;
+  width: 4.7rem;
   padding-left: 0.4rem;
   border-radius: 10px;
 }

@@ -95,7 +95,7 @@ const TeacherProfile = () => {
           <div className="info-container">
             <div className="driver-status">
               <p>Name : Mr. Al-Imtiaz​</p>
-              <p className="status">ACTIVE</p>
+              <p className="status-a">ACTIVE</p>
             </div>
 
             <p>Phone Number : 01911111111</p>

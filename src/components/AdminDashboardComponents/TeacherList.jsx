@@ -30,21 +30,9 @@ const TeacherList = () => {
       ],
       image: sir,
     },
+
     {
       id: 2,
-      details: [
-        {
-          name: "Md. Imran Mir",
-          teacher_id: 1944651035,
-          phone_no: "01911111111",
-          route: "Campus-Rampura",
-          mail: "imran@gmail.com",
-        },
-      ],
-      image: imran,
-    },
-    {
-      id: 3,
       details: [
         {
           name: "Olin Akon Chumky",
@@ -55,6 +43,19 @@ const TeacherList = () => {
         },
       ],
       image: olin,
+    },
+    {
+      id: 3,
+      details: [
+        {
+          name: "Md. Imran Mir",
+          teacher_id: 1944651035,
+          phone_no: "01911111111",
+          route: "Campus-Rampura",
+          mail: "imran@gmail.com",
+        },
+      ],
+      image: imran,
     },
     {
       id: 4,
