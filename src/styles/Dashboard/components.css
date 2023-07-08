@@ -27,13 +27,14 @@ h1 {
 .request-all-details {
   display: flex;
   flex-direction: row;
-  /* background-color: red; */
+  width: 17rem;
 }
 
 .req-choose-button {
   display: flex;
   flex-direction: row;
-  margin-left: 14rem;
+  margin-left: 26rem;
+  /* background-color: red; */
 }
 .req-div-button {
   margin-left: 2rem;
@@ -66,4 +67,27 @@ img {
   margin-bottom: 1.5rem;
   padding: 2rem;
   /* padding-left: 4rem; */
+}
+
+.button-c {
+  background: var(--buttonColour);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0px;
+  margin-left: -1.5rem;
+  margin-top: 2rem;
+}
+
+.button-c:hover {
+  background: var(--fontPrimary);
+  color: #fff;
 }
