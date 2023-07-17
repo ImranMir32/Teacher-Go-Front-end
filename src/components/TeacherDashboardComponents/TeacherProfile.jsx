@@ -1,50 +1,85 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../../styles/Dashboard/profile.css";
 import "../../styles/Dashboard/updateForm.css";
-import sir from "../../assets/imtiaz_sir.jpg";
+import demo from "../../assets/demo.webp";
 import { AiOutlineClose } from "react-icons/ai";
 import { useFormik } from "formik";
 // import { Link } from "react-router-dom";
-import { teacherSignUpSchema } from "../../schemas/schemas";
-
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  console.log("ok");
-  console.log(JSON.stringify(values));
-
-  //   let result = await fetch("http://localhost:4000/api/users/signin", {
-  //     method: "POST",
-  //     body: JSON.stringify(values),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   result = await result.json();
-  //   // console.log("result--> ", result.newUser);
-  //   actions.resetForm();
-
-  //   if (result.newUser) {
-  //     toast.success("Account has been created !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //     setTimeout(() => {
-  //       window.location.href = "/signin";
-  //     }, 2000);
-  //   } else {
-  //     toast.warning("Email is already used try another email !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //   }
-};
+import { updateSignUpSchema } from "../../schemas/schemas";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { GlobalStateContext } from "../../Context/Global_Context";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const TeacherProfile = () => {
-  const [imageURL, setImageURL] = useState(sir);
+  const { user, setUser } = useContext(GlobalStateContext);
+  const [imageURL, setImageURL] = useState(demo);
   const [update, setUpdate] = useState(false);
+  // const [notify, setNotify] = useState(false);
+  // const [reload, setReload] = useState(userStatus);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0); // scroll to the top of the page
-  }, []);
+    if (user.isDriverOk === false) {
+      setTimeout(() => {
+        toast.error("Your Driver is ABSENT!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }, 2000);
+    }
+  }, [user.isDriverOk]);
+  console.log(user.isDriverOk);
+  // if (user.isDriverOk === false) setNotify(true);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/v1/users/get-user/${user._id}`)
+      .then((res) => {
+        console.log(res.data.user);
+        setUser(res.data.user);
+      })
+      .catch((err) => console.log(err, "it has an error"));
+  }, [setUser, user._id]);
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("ok");
+    console.log(JSON.stringify(values));
+
+    let result = await fetch(
+      `http://localhost:8000/api/v1/users/update-user-info/${user._id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    result = await result.json();
+    console.log("result--> ", result.status);
+    actions.resetForm();
+
+    if (result.status === "success") {
+      toast.success("Profile has been updated !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setUser(result.user);
+      // setReload(true);
+      setTimeout(() => {
+        navigate("/teacher-dashboard");
+        setUpdate(false);
+      }, 1000);
+    } else {
+      toast.warning("Enter valid Info !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
 
   const {
     values,
@@ -56,13 +91,13 @@ const TeacherProfile = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      name: "Mr. Al-Imtiaz​",
-      email: "alimtiazsir@gmail.com",
-      teacherId: "19446510001",
-      phone: "01911111111",
+      name: user?.name || "",
+      email: user?.email || "",
+      teacherId: user?.id || "",
+      phone: user?.phone || "",
       password: "",
     },
-    validationSchema: teacherSignUpSchema,
+    validationSchema: updateSignUpSchema,
     onSubmit,
   });
 
@@ -94,14 +129,18 @@ const TeacherProfile = () => {
 
           <div className="info-container">
             <div className="driver-status">
-              <p>Name : Mr. Al-Imtiaz​</p>
-              <p className="status-a">ACTIVE</p>
+              <p>Name: {user?.name}</p>
+              {user?.isTeacherWillGo === true ? (
+                <p className="status-a">ACTIVE</p>
+              ) : (
+                <p className="status-p">ABSENT</p>
+              )}
             </div>
 
-            <p>Phone Number : 01911111111</p>
-            <p>Teacher Id : 19446510001</p>
-            <p>Route : Campus-Rampura</p>
-            <p>Email : alimtiazsir@gmail.com</p>
+            <p>Phone Number : {user?.phone}</p>
+            <p>Teacher Id : {user?.id}</p>
+            <p>Route : {user?.routeId}</p>
+            <p>Email : {user?.email}</p>
           </div>
 
           <div
@@ -112,6 +151,7 @@ const TeacherProfile = () => {
           >
             <button className="button add">Update</button>
           </div>
+          <ToastContainer />
         </div>
       ) : (
         <div>
@@ -142,6 +182,7 @@ const TeacherProfile = () => {
                   {/* email */}
                   <label htmlFor="email">Email</label>
                   <input
+                    readOnly
                     value={values.email}
                     onChange={handleChange}
                     id="email"
@@ -159,6 +200,7 @@ const TeacherProfile = () => {
                   {/* teacherId */}
                   <label htmlFor="teacherId">Teacher Id</label>
                   <input
+                    readOnly
                     value={values.teacherId}
                     onChange={handleChange}
                     id="teacherId"
@@ -211,11 +253,11 @@ const TeacherProfile = () => {
                   <button disabled={isSubmitting} type="submit" class="button">
                     Update Info
                   </button>
-                  {/* <ToastContainer /> */}
+                  <ToastContainer />
                   <div
                     className="update-close"
                     onClick={() => {
-                      window.location.href = "/teacher-dashboard";
+                      // window.location.href = "/teacher-dashboard";
                       setUpdate(false);
                     }}
                   >

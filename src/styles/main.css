@@ -211,8 +211,50 @@ h4 {
   border: 0px;
 }
 
+.button-acc {
+  background: green;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0px;
+}
+
+.button-cl {
+  background: red;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0px;
+}
+
 .button:hover {
   background: var(--fontPrimary);
+  color: #fff;
+}
+
+.button-acc:hover {
+  background: rgb(17, 197, 17);
+  color: #fff;
+}
+
+.button-cl:hover {
+  background: rgb(238, 91, 91);
   color: #fff;
 }
 

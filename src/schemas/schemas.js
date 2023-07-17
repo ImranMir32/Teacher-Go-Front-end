@@ -71,3 +71,13 @@ export const addRouteSchema = yup.object().shape({
   to: yup.string().min(2).required("Route name is a required field"),
   // driver_name: yup.string().required("Driver name is a required field"),
 });
+
+export const updateSignUpSchema = yup.object().shape({
+  name: yup.string().min(4).required("Name is a required field"),
+  email: yup.string().email("Please enter a valid email").required("Required"),
+  teacherId: yup.string(),
+  phone: yup
+    .string()
+    .matches(phoneBd, { message: "Enter a valid phone number" })
+    .required("Required"),
+});

@@ -3,49 +3,126 @@ import "../../styles/signin.css";
 import { useFormik } from "formik";
 import { addRouteSchema } from "../../schemas/schemas";
 import { AiOutlineClose } from "react-icons/ai";
-
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../../styles/Dashboard/components.css";
-
-const onSubmit = async (values, actions) => {
-  console.log(values);
-  console.log(actions);
-  console.log("ok");
-  console.log(JSON.stringify(values));
-
-  //   let result = await fetch("http://localhost:4000/api/users/signin", {
-  //     method: "POST",
-  //     body: JSON.stringify(values),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   result = await result.json();
-  //   // console.log("result--> ", result.newUser);
-  //   actions.resetForm();
-
-  //   if (result.newUser) {
-  //     toast.success("Account has been created !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //     setTimeout(() => {
-  //       window.location.href = "/signin";
-  //     }, 2000);
-  //   } else {
-  //     toast.warning("Email is already used try another email !", {
-  //       position: toast.POSITION.TOP_RIGHT,
-  //     });
-  //   }
-};
+// import { useNavigate } from "react-router-dom";
 
 const Route = () => {
   const [addRoutePage, setAddRoutePage] = useState(false);
+  const [driverId, setDriverId] = useState("");
+
+  const [reload, setReload] = useState(false);
+
+  const [routeId, setRouteId] = useState("");
+
+  // const navigate = useNavigate();
+  const [driverList, setDriverList] = useState([]);
+  const [routeList, setRouteList] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/v1/users/drivers`)
+      .then((res) => {
+        const updatedDriverList = res.data.drivers;
+        updatedDriverList.unshift(""); // Add an empty string at the beginning
+        setDriverList(updatedDriverList);
+      })
+      .catch((err) => console.log(err, "it has an error"));
+
+    axios
+      .get(`http://localhost:8000/api/v1/routes`)
+      .then((res) => {
+        console.log(res.data.routes);
+        setRouteList(res.data.routes);
+      })
+      .catch((err) => console.log(err, "-->it has an error"));
+  }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // scroll to the top of the page
-  }, []);
+    axios
+      .get(`http://localhost:8000/api/v1/users/drivers`)
+      .then((res) => {
+        const updatedDriverList = res.data.drivers;
+        updatedDriverList.unshift(""); // Add an empty string at the beginning
+        setDriverList(updatedDriverList);
+      })
+      .catch((err) => console.log(err, "it has an error"));
+
+    axios
+      .get(`http://localhost:8000/api/v1/routes`)
+      .then((res) => {
+        console.log(res.data.routes);
+        setRouteList(res.data.routes);
+      })
+      .catch((err) => console.log(err, "-->it has an error"));
+  }, [reload]);
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    console.log(actions);
+    console.log("ok");
+    console.log(JSON.stringify(values));
+    const value = {
+      name: "UITS",
+      endTo: values.to,
+      driver: driverId,
+      driverName: values.name,
+    };
+    if (routeId === "") {
+      let result = await fetch("http://localhost:8000/api/v1/routes", {
+        method: "POST",
+        body: JSON.stringify(value),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      result = await result.json();
+      // // console.log("result--> ", result.newUser);
+      actions.resetForm();
+
+      if (result.status === "success1") {
+        toast.success("Route has been created !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        setReload(true);
+        setTimeout(() => {
+          handleReturn(false);
+        }, 2000);
+      } else {
+        toast.warning("Enter valid Info !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+    } else {
+      let result = await fetch(
+        `http://localhost:8000/api/v1/routes/${routeId}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(value),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      result = await result.json();
+      actions.resetForm();
+
+      if (result.status === "success2") {
+        toast.success("Route has been updated !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        setReload(true);
+        setTimeout(() => {
+          handleReturn(false);
+        }, 2000);
+      } else {
+        toast.warning("Enter valid Info !", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+    }
+  };
   const {
     values,
     errors,
@@ -57,7 +134,7 @@ const Route = () => {
   } = useFormik({
     initialValues: {
       to: "",
-      from: "",
+      from: "UITS",
       driver_name: "",
     },
     validationSchema: addRouteSchema,
@@ -70,105 +147,28 @@ const Route = () => {
     setAddRoutePage(param);
   };
 
-  const demoRouteList = [
-    {
-      id: 1,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 2,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 3,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 4,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 5,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 6,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 7,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 8,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 9,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 10,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 11,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-    {
-      id: 12,
-      from: "Mohakhali - Campus",
-      to: "Campus - Mohakhali",
-      driver_name: "Rafi",
-    },
-  ];
-
-  const states = ["", "Imran", "Rafi", "Likhon", "Tanvir", "Joy"];
-  // const cities = {
-  //   UP: ["f", "g", "l"],
-  //   Delhi: ["a", "b"],
-  //   Gujrat: ["tr", "trt", "rtt"],
-  // };
-
-  // const [selectedState, etSelectedState] = useState("");
+  const handleReturn = (param) => {
+    setAddRoutePage(param);
+  };
 
   return (
     <div>
       {!addRoutePage ? (
         <div className="request-container" id="mySection">
-          {demoRouteList.map((demoRouteList) => (
+          {routeList.map((List, index) => (
             <div className="request-details">
+              <h1>{index + 1}</h1>
               <div className="request-all-details">
-                <div key={demoRouteList.id}>
-                  {/* <h3>{demoRouteList.account_type}</h3>
-                {demoRequest.details.map((details) => (
-                  <div key={details.teacher_id}> */}
+                <div key={List._id}>
                   <h3>Route</h3>
-                  <p>{demoRouteList.from}</p>
-                  <p>{demoRouteList.to}</p>
-                  <p>Driver : {demoRouteList.driver_name}</p>
+                  <p>
+                    {console.log("-->", List.endTo)}
+                    {List.endTo} - {List.name}
+                  </p>
+                  <p>
+                    {List.name} - {List.endTo}
+                  </p>
+                  <p>Driver : {List.driverName}</p>
                 </div>
                 {/* ))} */}
                 {/* </div> */}
@@ -176,7 +176,16 @@ const Route = () => {
               <div className="request-all-details">
                 <div className="req-choose-button">
                   <div className="req-div-button">
-                    <button className="button">Edit</button>
+                    <button
+                      className="button"
+                      onClick={() => {
+                        setRouteId(List._id);
+                        handleButtonClick(true);
+                        // handleEdit(List._id);
+                      }}
+                    >
+                      Edit
+                    </button>
                   </div>
                   {/* <div className="req-div-button">
                   <button className="button">Cencel</button>
@@ -191,10 +200,11 @@ const Route = () => {
             <div
               className="req-div-button"
               onClick={() => {
+                setRouteId("");
                 handleButtonClick(true);
               }}
             >
-              <button className="button add">Add Route</button>
+              <button className="button add-d">Add Route</button>
             </div>
           </div>
         </div>
@@ -205,6 +215,7 @@ const Route = () => {
             {/* From */}
             <label htmlFor="from">From</label>
             <input
+              readOnly
               value={values.from}
               onChange={handleChange}
               id="from"
@@ -235,34 +246,35 @@ const Route = () => {
             <div>
               <label htmlFor="from">Driver Name</label>
               <select
-              // onChange={(e) => {
-              //   setSelectedState(e.target.value);
-              // }}
+                onChange={(e) => {
+                  setDriverId(e.target.value);
+                }}
               >
-                {states.map((state) => {
-                  return <option>{state}</option>;
+                {driverList.map((state) => {
+                  return (
+                    <option key={state._id} value={state._id}>
+                      {state.name}
+                    </option>
+                  );
                 })}
               </select>
-              {/* {selectedState && (
-                <select>
-                  {cities[selectedState].map((city) => {
-                    return <option>{city}</option>;
-                  })}
-                </select>
-              )} */}
             </div>
             {/* button */}
             <button disabled={isSubmitting} type="submit" class="button">
               Add Route
             </button>
-            {/* <ToastContainer /> */}
+            <ToastContainer />
             <div
               className="route-close"
               // onClick={() => {
               //   handleChooseClick(false);
               // }}
             >
-              <AiOutlineClose />
+              <AiOutlineClose
+                onClick={() => {
+                  handleReturn(false);
+                }}
+              />
             </div>
           </form>
         </div>

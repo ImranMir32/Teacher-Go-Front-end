@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "../styles/signin.css";
 import { useFormik } from "formik";
 import { signInSchema } from "../schemas/schemas";
@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
 import { useNavigate } from "react-router-dom";
-
+import { GlobalStateContext } from "../Context/Global_Context";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignInForm = () => {
   const [choose, setChoose] = useState(false);
+  const { setUser } = useContext(GlobalStateContext);
   const handleChooseClick = (param) => {
     setChoose(param);
   };
@@ -29,6 +30,12 @@ const SignInForm = () => {
     //     position: toast.POSITION.TOP_RIGHT,
     //   });
     // }
+    if (
+      values.email === "uitsadmin@gmail.com" &&
+      values.password === "uitsadmin"
+    )
+      navigate("/admin-dashboard");
+
     let result = await fetch("http://localhost:8000/api/v1/users/login", {
       method: "POST",
       body: JSON.stringify(values),
@@ -41,6 +48,7 @@ const SignInForm = () => {
     actions.resetForm();
 
     if (result.status === "success") {
+      setUser(result.user);
       if (result.user.role === "teacher") navigate("/teacher-dashboard");
       else if (result.user.role === "driver") navigate("/driver-dashboard");
     } else {

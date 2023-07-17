@@ -11,6 +11,7 @@ import DriverDashboard from "./routes/DriverDashboard.jsx";
 
 import { GlobalStateProvider } from "./Context/Global_Context";
 import { GlobalMethodsProvider } from "./Context/GlobalMethodsContext";
+import EditRoute from "./components/AdminDashboardComponents/EditRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
   {
     path: "/driver-dashboard",
     element: <DriverDashboard />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/edit-route",
+    element: <EditRoute />,
     errorElement: <ErrorPage />,
   },
 ]);

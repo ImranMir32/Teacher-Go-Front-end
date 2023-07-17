@@ -27,13 +27,13 @@ h1 {
 .request-all-details {
   display: flex;
   flex-direction: row;
-  width: 17rem;
+  width: 16rem;
 }
 
 .req-choose-button {
   display: flex;
   flex-direction: row;
-  margin-left: 26rem;
+  margin-left: 22rem;
   /* background-color: red; */
 }
 .req-div-button {
@@ -60,6 +60,12 @@ img {
   width: 10rem;
 }
 
+.add-d {
+  /* margin-left: 10rem; */
+  margin-bottom: 3rem;
+  width: 10rem;
+}
+
 .request-details-teacher {
   display: flex;
   height: 10rem;
@@ -70,7 +76,7 @@ img {
 }
 
 .button-c {
-  background: var(--buttonColour);
+  background: red;
   color: white;
   padding: 0.6rem 1.2rem;
   font-weight: 600;
@@ -90,4 +96,9 @@ img {
 .button-c:hover {
   background: var(--fontPrimary);
   color: #fff;
+}
+
+.h {
+  color: rgb(128, 0, 0);
+  /* margin-left: 1rem; */
 }

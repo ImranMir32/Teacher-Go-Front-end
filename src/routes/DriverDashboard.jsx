@@ -5,7 +5,8 @@ import ResetPassword from "../components/DriverDashboardComponents/ResetPassword
 
 import DriverProfile from "../components/DriverDashboardComponents/DriverProfile";
 import MyTeacherList from "../components/DriverDashboardComponents/MyTeacherList";
-import TeacherStatus from "../components/TeacherDashboardComponents/TeacherStatus";
+
+import DriverStatus from "../components/DriverDashboardComponents/DriverStatus";
 
 const DriverDashboard = () => {
   const [Page, setPage] = useState("Profile");
@@ -76,7 +77,7 @@ const DriverDashboard = () => {
             <div className="cp-topic-details">
               {Page === "Profile" && <DriverProfile />}
               {Page === "My Teacher List" && <MyTeacherList />}
-              {Page === "Teacher Status" && <TeacherStatus />}
+              {Page === "Teacher Status" && <DriverStatus />}
               {Page === "Reset Password" && <ResetPassword />}
             </div>
           </div>

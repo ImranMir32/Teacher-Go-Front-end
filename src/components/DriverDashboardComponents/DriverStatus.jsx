@@ -4,16 +4,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GlobalStateContext } from "../../Context/Global_Context";
 
-const TeacherStatus = () => {
+const DriverStatus = () => {
   const { user, setUserStatus } = useContext(GlobalStateContext);
   const handleClick = async (param) => {
     console.log(JSON.stringify(param));
     const obj = {
-      isTeacherWillGo: param,
+      isDriverOk: param,
     };
     try {
       const result = await fetch(
-        `http://localhost:8000/api/v1/users/teacher/${user._id}`,
+        `http://localhost:8000/api/v1/users/driver/${user._id}`,
         {
           method: "PATCH",
           body: JSON.stringify(obj),
@@ -53,4 +53,4 @@ const TeacherStatus = () => {
   );
 };
 
-export default TeacherStatus;
+export default DriverStatus;

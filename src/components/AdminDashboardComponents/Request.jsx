@@ -10,6 +10,17 @@ const Request = () => {
   const [requestDriver, setRequestDriver] = useState([]);
   const [load, setLoad] = useState(false);
 
+  const [checked, setChecked] = useState(false);
+  const [checkedt, setCheckedt] = useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
+
+  const handleChanget = () => {
+    setCheckedt(!checkedt);
+  };
+
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/v1/admin/teachers-request`)
@@ -65,12 +76,25 @@ const Request = () => {
       })
       .catch((err) => console.log(err, "it has an error"));
   };
+
   return (
     <div>
       <div className="request-container" id="mySection">
         {/* <div className="request-container" id="mySection"> */}
-        {requestTeacher.map((request) => (
+        {requestTeacher.map((request, index) => (
           <div className="request-details-teacher">
+            {/* <h1>{cnt}</h1> */}
+            {/* <h1>{cnt + index}</h1> */}
+            {/* <div>
+              <label className="checkbox">
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChange}
+                />
+              </label>
+            </div> */}
+            <h1 className="h">{index + 1}</h1>
             <div className="request-all-details">
               <div>
                 <h3>Teacher</h3>
@@ -88,7 +112,7 @@ const Request = () => {
               <div className="req-choose-button">
                 <div className="req-div-button">
                   <button
-                    className="button"
+                    className="button-acc"
                     onClick={() => {
                       ApproveRequest(request._id);
                     }}
@@ -98,7 +122,7 @@ const Request = () => {
                 </div>
                 <div className="req-div-button">
                   <button
-                    className="button"
+                    className="button-cl"
                     onClick={() => {
                       CencelRequest(request._id);
                     }}
@@ -108,15 +132,25 @@ const Request = () => {
                 </div>
               </div>
             </div>
+            {/* <div className="request-all-details">
+              <label className="checkbox">
+                <input
+                  type="checkbox"
+                  checked={checkedt}
+                  onChange={handleChanget}
+                />
+              </label>
+            </div> */}
           </div>
         ))}
-        {/* </div> */}
       </div>
 
       <div className="request-container" id="mySection">
         {/* <div className="request-container" id="mySection"> */}
-        {requestDriver.map((request) => (
+        {requestDriver.map((request, index) => (
           <div className="request-details">
+            {/* <h1>{cnt + index}</h1> */}
+            <h1>{index + 1}</h1>
             <div className="request-all-details">
               <div>
                 <h3>Driver</h3>
@@ -134,7 +168,7 @@ const Request = () => {
               <div className="req-choose-button">
                 <div className="req-div-button">
                   <button
-                    className="button"
+                    className="button-acc"
                     onClick={() => {
                       ApproveRequest(request._id);
                     }}
@@ -144,7 +178,7 @@ const Request = () => {
                 </div>
                 <div className="req-div-button">
                   <button
-                    className="button"
+                    className="button-cl"
                     onClick={() => {
                       CencelRequest(request._id);
                     }}
@@ -157,7 +191,6 @@ const Request = () => {
           </div>
         ))}
       </div>
-      {/* </div> */}
     </div>
   );
 };

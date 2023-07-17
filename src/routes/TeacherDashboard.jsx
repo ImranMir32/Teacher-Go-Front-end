@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/Dashboard/dashboard.css";
 
 // import { demoNotification } from "../components/TeacherDashboardComponents/utils";
@@ -10,6 +10,7 @@ import ResetPassword from "../components/TeacherDashboardComponents/ResetPasswor
 import MyDriver from "../components/TeacherDashboardComponents/MyDriver";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
+import { GlobalStateContext } from "../Context/Global_Context";
 
 const TeacherDashboard = () => {
   const [Page, setPage] = useState("Profile");
@@ -18,6 +19,7 @@ const TeacherDashboard = () => {
   //   setNotify(demoNotification.length);
   //   window.scrollTo(0, 0); // scroll to the top of the page
   // }, []);
+  const { setShow } = useContext(GlobalStateContext);
 
   const handleButtonClick = (param) => {
     setPage(param);
@@ -49,6 +51,7 @@ const TeacherDashboard = () => {
 
             <p
               onClick={() => {
+                setShow(false);
                 handleButtonClick("Driver List");
               }}
               className={Page === "Driver List" ? "cp-p-active" : "cp-p"}
